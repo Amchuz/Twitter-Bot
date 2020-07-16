@@ -1,12 +1,13 @@
+import os
 import tweepy
 import time
 # Authenticate to Twitter
-CONSUMER_KEY = 5tdn6cRUteqVfLDPFp0nu2um9
-CONSUMER_SECRET = GKf9osiqCRRRMyZte8OICBPhG5RQ5zcswEjECJkN9BjXdrTCbM
-ACCESS_KEY = 1283441859159666688-CwEpvhHoxbOR9bFIbYYtrRSTOjIhNs
-ACESS_SECRET = 1w3pO2CIusLhwqy0jEjFAeX1xxsVa0itBX6U1LyWDhlRE
+CONSUMER_KEY=os.getenv(CONSUMER_KEY)
+CONSUMER_SECRET=os.getenv(CONSUMER_SECRET)
+ACCESS_KEY=os.getenv(ACCESS_KEY)
+ACCESS_SECRET=os.getenv(ACCESS_SECRET)
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
-auth.set_access_token(ACCESS_KEY, ACESS_SECRET)
+auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
 # Create API object
 api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 user = api.me()
